@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circular Text</title>
+    <style>
+      body {
+        background: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      svg {
+        width: 400px;
+        height: 400px;
+      }
+      text {
+        font-size: 20px;
+        font-weight: bold;
+        fill: #ffdd00;
+      }
+    </style>
+  </head>
+  <body>
+    <svg viewBox="0 0 200 200">
+      <path id="circle" d="M100,50 a50,50 0 1,1 -0.1,0" fill="none" />
+      <text>
+        <textPath href="#circle" startOffset="0%">
+          🔄 Looping Text Around Circle 🔄 Looping Text Around Circle
+        </textPath>
+      </text>
+    </svg>
+
+    <script>
+      const text = document.querySelector("textPath");
+      let offset = 0;
+      function animate() {
+        offset += 0.3;
+        if (offset > 100) offset = 0;
+        text.setAttribute("startOffset", offset + "%");
+        requestAnimationFrame(animate);
+      }
+      animate();
+    </script>
+  </body>
+</html>

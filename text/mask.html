@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Mask</title>
+    <style>
+      body {
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+      svg {
+        width: 80%;
+        height: 300px;
+      }
+      text {
+        font-size: 60px;
+        font-weight: bold;
+        fill: url(#grad);
+      }
+    </style>
+  </head>
+  <body>
+    <svg viewBox="0 0 800 200">
+      <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ff6ec7" />
+          <stop offset="50%" stop-color="#ffd86f" />
+          <stop offset="100%" stop-color="#6ef3ff" />
+        </linearGradient>
+      </defs>
+      <text x="50" y="150">CREATIVITY IN CODE</text>
+    </svg>
+  </body>
+</html>

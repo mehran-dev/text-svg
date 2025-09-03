@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text on Star</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #fff9c4;
+        font-family: Arial, sans-serif;
+      }
+      svg {
+        width: 400px;
+        height: 400px;
+      }
+      text {
+        font-size: 18px;
+        fill: #f57f17;
+        font-weight: bold;
+      }
+      path {
+        fill: none;
+        stroke: #fbc02d;
+        stroke-width: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <svg viewBox="0 0 200 200">
+      <!-- Star Path -->
+      <path
+        id="star"
+        d="M100,10 L120,80 L190,80 L130,125 L150,190 L100,150 L50,190 L70,125 L10,80 L80,80 Z"
+      />
+
+      <!-- Text on Path -->
+      <text>
+        <textPath href="#star" startOffset="0%">
+          Reach for the Stars ✨
+        </textPath>
+      </text>
+    </svg>
+
+    <script>
+      const starText = document.querySelector("textPath");
+      let offset = 0;
+      function animateStarText() {
+        offset += 0.1;
+        if (offset > 100) offset = 0;
+        starText.setAttribute("startOffset", offset + "%");
+        requestAnimationFrame(animateStarText);
+      }
+      animateStarText();
+    </script>
+  </body>
+</html>

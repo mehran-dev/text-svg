@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magnificent Wave Text</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #e0f7fa;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+      }
+      svg {
+        width: 90%;
+        height: 300px;
+      }
+      text {
+        font-size: 32px;
+        font-weight: bold;
+        fill: url(#gradient);
+      }
+      path {
+        fill: none;
+        stroke: #4dd0e1;
+        stroke-width: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <svg viewBox="0 0 800 200">
+      <!-- Gradient for Text -->
+      <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#2196f3" />
+          <stop offset="50%" stop-color="#00bcd4" />
+          <stop offset="100%" stop-color="#4dd0e1" />
+        </linearGradient>
+      </defs>
+
+      <!-- Magnificent Wave Path -->
+      <path
+        id="wave"
+        d="
+    M0,100 
+    C50,50 150,150 200,100 
+    C250,50 350,150 400,100 
+    C450,50 550,150 600,100 
+    C650,50 750,150 800,100"
+      />
+
+      <!-- Text on Path -->
+      <text>
+        <textPath href="#wave" startOffset="0%">
+          Ride the Magnificent Code Wave ~ 🌊
+        </textPath>
+      </text>
+    </svg>
+
+    <script>
+      const waveText = document.querySelector("textPath");
+      let offset = 0;
+      function animateWaveText() {
+        offset += 0.4; // slightly slower, smoother motion
+        if (offset > 100) offset = 0;
+        waveText.setAttribute("startOffset", offset + "%");
+        requestAnimationFrame(animateWaveText);
+      }
+      animateWaveText();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Wavy Nature Text</title>
+    <style>
+      body {
+        margin: 0;
+        background: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 300px;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80")
+          repeat-x;
+        background-size: cover;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: moveWave 10s linear infinite;
+        margin: 0;
+        white-space: nowrap;
+        text-align: center;
+      }
+
+      @keyframes moveWave {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 500px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>NATURE</h1>
+  </body>
+</html>

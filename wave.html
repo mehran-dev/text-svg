@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text on Wave</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #e0f7fa;
+        font-family: Arial, sans-serif;
+      }
+      svg {
+        width: 600px;
+        height: 200px;
+      }
+      text {
+        font-size: 24px;
+        fill: #00796b;
+        font-weight: bold;
+      }
+      path {
+        fill: none;
+        stroke: #4dd0e1;
+        stroke-width: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <svg viewBox="0 0 600 200">
+      <!-- Wave Path -->
+      <path
+        id="wave"
+        d="M0,100 Q50,50 100,100 T200,100 T300,100 T400,100 T500,100 T600,100"
+      />
+
+      <!-- Text on Path -->
+      <text>
+        <textPath href="#wave" startOffset="0%">
+          Ride the Code Wave ~ 🌊
+        </textPath>
+      </text>
+    </svg>
+
+    <script>
+      const waveText = document.querySelector("textPath");
+      let offset = 0;
+      function animateWaveText() {
+        offset += 0.5;
+        if (offset > 100) offset = 0;
+        waveText.setAttribute("startOffset", offset + "%");
+        requestAnimationFrame(animateWaveText);
+      }
+      animateWaveText();
+    </script>
+  </body>
+</html>

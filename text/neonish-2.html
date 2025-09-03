@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Damaged Neon Text</title>
+    <style>
+      body {
+        background: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        font-size: 100px;
+        font-weight: bold;
+        display: flex;
+        gap: 10px;
+      }
+
+      /* Fully lit letters */
+      .lit {
+        color: #ff0000;
+        text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000,
+          0 0 40px #ff6666;
+      }
+
+      /* Damaged / flickering letters */
+      .flicker {
+        color: #4d0000;
+        text-shadow: 0 0 2px #ff0000, 0 0 5px #ff0000;
+        animation: flicker 1.2s infinite;
+      }
+
+      @keyframes flicker {
+        0%,
+        18%,
+        22%,
+        25%,
+        53%,
+        57%,
+        100% {
+          opacity: 1;
+        }
+        20%,
+        24%,
+        55% {
+          opacity: 0.2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      <span class="lit">N</span>
+      <span class="lit">E</span>
+      <span class="flicker">O</span>
+      <span class="flicker">N</span>
+    </h1>
+  </body>
+</html>

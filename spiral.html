@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artistic Spiral Text</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #111;
+        font-family: "Arial", sans-serif;
+        overflow: hidden;
+      }
+      svg {
+        width: 80%;
+        height: 80%;
+      }
+      text {
+        font-size: 22px;
+        font-weight: bold;
+        fill: url(#gradient);
+      }
+    </style>
+  </head>
+  <body>
+    <svg viewBox="0 0 400 400">
+      <!-- Gradient for text -->
+      <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ff6ec7" />
+          <stop offset="50%" stop-color="#ffd86f" />
+          <stop offset="100%" stop-color="#6ef3ff" />
+        </linearGradient>
+      </defs>
+
+      <!-- Spiral Path -->
+      <path
+        id="spiral"
+        fill="none"
+        stroke="none"
+        d="
+    M200,200
+    C210,180 230,160 250,140
+    C270,120 290,100 310,80
+    C330,60 350,50 370,50
+    C350,70 330,90 310,110
+    C290,130 270,150 250,170
+    C230,190 210,210 200,230
+    C190,210 170,190 150,170
+    C130,150 110,130 90,110
+    C70,90 50,70 30,50
+    C50,50 70,60 90,80
+    C110,100 130,120 150,140
+    C170,160 190,180 200,200
+    "
+      />
+
+      <!-- Text on Spiral -->
+      <text>
+        <textPath href="#spiral" startOffset="0%">
+          🌟 Creativity Flows in Code • Creativity Flows in Code • Creativity
+          Flows in Code •
+        </textPath>
+      </text>
+    </svg>
+
+    <script>
+      const spiralText = document.querySelector("textPath");
+      let offset = 0;
+      function animateSpiralText() {
+        offset -= 0.2; // slow and smooth for artistic effect
+        if (offset < -100) offset = 0;
+        spiralText.setAttribute("startOffset", offset + "%");
+        requestAnimationFrame(animateSpiralText);
+      }
+      animateSpiralText();
+    </script>
+  </body>
+</html>

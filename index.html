@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Text on Heart Path</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #fff0f5;
+        font-family: Arial, sans-serif;
+      }
+
+      svg {
+        width: 400px;
+        height: 400px;
+      }
+
+      text {
+        font-size: 24px;
+        fill: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <svg viewBox="0 0 200 200">
+      <!-- Heart Path -->
+      <path
+        id="heart"
+        d="M100,30 
+                       C100,10 140,10 140,50 
+                       C140,90 100,130 100,150 
+                       C100,130 60,90 60,50 
+                       C60,10 100,10 100,30 Z"
+        fill="none"
+        stroke="pink"
+        stroke-width="2"
+      />
+
+      <!-- Text on Path -->
+      <text>
+        <textPath href="#heart" startOffset="0%">I love you</textPath>
+      </text>
+    </svg>
+
+    <script>
+      const textPath = document.querySelector("textPath");
+      let offset = 0;
+
+      function animateText() {
+        offset += 0.5; // speed of animation
+        if (offset > 100) offset = 0; // loop
+        textPath.setAttribute("startOffset", offset + "%");
+        requestAnimationFrame(animateText);
+      }
+
+      animateText();
+    </script>
+  </body>
+</html>
