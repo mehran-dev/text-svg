@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Text Effects Mega Pack</title>
+    <style>
+      body {
+        margin: 0;
+        background: #000;
+        font-family: "Arial Black", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 100px;
+        padding: 50px;
+        color: white;
+      }
+      h2 {
+        font-size: 20px;
+        color: #888;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+      svg {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: #0ff; text-shadow: 0 0 30px #0ff">
+      🚀 SVG Text Effects Mega Pack 🚀
+    </h1>
+
+    <!-- 1. Matrix Digital Rain -->
+    <h2>1. Matrix Digital Rain</h2>
+    <svg viewBox="0 0 1200 300">
+      <defs>
+        <mask id="matrix-mask">
+          <text
+            x="50%"
+            y="70%"
+            text-anchor="middle"
+            font-size="220"
+            fill="white"
+          >
+            MATRIX
+          </text>
+        </mask>
+      </defs>
+      <image
+        href="https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif"
+        width="1200"
+        height="300"
+        mask="url(#matrix-mask)"
+      />
+    </svg>
+
+    <!-- 2. Rainbow Gradient Shift -->
+    <h2>2. Rainbow Gradient Shift</h2>
+    <svg viewBox="0 0 1200 300">
+      <defs>
+        <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="red">
+            <animate
+              attributeName="offset"
+              values="0;1"
+              dur="4s"
+              repeatCount="indefinite"
+            />
+          </stop>
+          <stop offset="50%" stop-color="yellow" />
+          <stop offset="100%" stop-color="blue" />
+        </linearGradient>
+      </defs>
+      <text
+        x="50%"
+        y="60%"
+        text-anchor="middle"
+        font-size="200"
+        fill="url(#rainbow)"
+      >
+        RAINBOW
+      </text>
+    </svg>
+
+    <!-- 3. Firefly Glow Particles -->
+    <h2>3. Firefly Glow</h2>
+    <svg viewBox="0 0 1200 300">
+      <text x="50%" y="60%" text-anchor="middle" font-size="200" fill="#fff600">
+        GLOW
+      </text>
+      <circle r="6" fill="yellow">
+        <animateMotion
+          dur="6s"
+          repeatCount="indefinite"
+          path="M0,100 Q600,-100 1200,100"
+        />
+        <animate
+          attributeName="opacity"
+          values="1;0;1"
+          dur="3s"
+          repeatCount="indefinite"
+        />
+      </circle>
+    </svg>
+
+    <!-- 4. Water Ripple -->
+    <h2>4. Water Ripple Effect</h2>
+    <svg viewBox="0 0 1200 300">
+      <defs>
+        <filter id="ripple">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.02"
+            numOctaves="2"
+            result="noise"
+          />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="15">
+            <animate
+              attributeName="scale"
+              values="15;30;15"
+              dur="5s"
+              repeatCount="indefinite"
+            />
+          </feDisplacementMap>
+        </filter>
+      </defs>
+      <text
+        x="50%"
+        y="60%"
+        text-anchor="middle"
+        font-size="200"
+        fill="#00bfff"
+        filter="url(#ripple)"
+      >
+        RIPPLE
+      </text>
+    </svg>
+
+    <!-- 5. Gold Shine -->
+    <h2>5. Gold Shine</h2>
+    <svg viewBox="0 0 1200 300">
+      <defs>
+        <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#FFD700" />
+          <stop offset="50%" stop-color="#FFF8DC" />
+          <stop offset="100%" stop-color="#FFD700" />
+        </linearGradient>
+      </defs>
+      <text
+        x="50%"
+        y="60%"
+        text-anchor="middle"
+        font-size="200"
+        fill="url(#gold)"
+      >
+        GOLD
+        <animate
+          attributeName="x"
+          from="45%"
+          to="55%"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+      </text>
+    </svg>
+
+    <!-- 6. Lightning Electric -->
+    <h2>6. Lightning Electric</h2>
+    <svg viewBox="0 0 1200 300">
+      <text
+        x="50%"
+        y="60%"
+        text-anchor="middle"
+        font-size="200"
+        fill="white"
+        stroke="#0ff"
+        stroke-width="3"
+      >
+        ELECTRIC
+        <animate
+          attributeName="opacity"
+          values="1;0.5;1;0.2;1"
+          dur="0.5s"
+          repeatCount="indefinite"
+        />
+      </text>
+    </svg>
+
+    <!-- 7. Sand / Desert Wind -->
+    <h2>7. Sand Wind Effect</h2>
+    <svg viewBox="0 0 1200 300">
+      <defs>
+        <filter id="sand">
+          <feTurbulence baseFrequency="0.8" numOctaves="1" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+      </defs>
+      <text
+        x="50%"
+        y="60%"
+        text-anchor="middle"
+        font-size="200"
+        fill="#C2B280"
+        filter="url(#sand)"
+      >
+        SAND
+      </text>
+    </svg>
+
+    <!-- 8. Futuristic Scanlines -->
+    <h2>8. Futuristic Scanlines</h2>
+    <svg viewBox="0 0 1200 300">
+      <defs>
+        <pattern
+          id="scanlines"
+          width="4"
+          height="4"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect width="4" height="2" fill="rgba(0,255,255,0.3)" />
+        </pattern>
+      </defs>
+      <text
+        x="50%"
+        y="60%"
+        text-anchor="middle"
+        font-size="200"
+        fill="url(#scanlines)"
+        stroke="#0ff"
+        stroke-width="2"
+      >
+        FUTURE
+      </text>
+    </svg>
+
+    <!-- 9. Blood Drip -->
+    <h2>9. Blood Drip Effect</h2>
+    <svg viewBox="0 0 1200 300">
+      <text x="50%" y="60%" text-anchor="middle" font-size="200" fill="red">
+        BLOOD
+      </text>
+      <circle cx="600" cy="200" r="8" fill="darkred">
+        <animate
+          attributeName="cy"
+          from="200"
+          to="280"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="opacity"
+          values="1;0"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+      </circle>
+    </svg>
+
+    <!-- 10. Pixel Glitch Blocks -->
+    <h2>10. Pixelated Glitch</h2>
+    <svg viewBox="0 0 1200 300">
+      <defs>
+        <filter id="pixel">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.8"
+            numOctaves="1"
+            result="noise"
+          />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" />
+        </filter>
+      </defs>
+      <text
+        x="50%"
+        y="60%"
+        text-anchor="middle"
+        font-size="200"
+        fill="lime"
+        filter="url(#pixel)"
+      >
+        PIXEL
+      </text>
+    </svg>
+  </body>
+</html>

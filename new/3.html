@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Text Effects 2</title>
+    <style>
+      body {
+        margin: 0;
+        background: #000;
+        font-family: "Arial Black", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 120px;
+        padding: 50px;
+        color: white;
+      }
+      h2 {
+        font-size: 22px;
+        color: #aaa;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+      svg {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: #0ff; text-shadow: 0 0 25px #0ff">
+      🌌 SVG Cinematic Text Effects 🌌
+    </h1>
+
+    <!-- 1. Smoke / Mist Text -->
+    <h2>1. Smoke / Mist Text</h2>
+    <svg viewBox="0 0 1200 300">
+      <defs>
+        <filter id="smoke">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.01 0.02"
+            numOctaves="3"
+            result="turb"
+          >
+            <animate
+              attributeName="baseFrequency"
+              dur="10s"
+              values="0.01 0.02;0.02 0.04;0.01 0.02"
+              repeatCount="indefinite"
+            />
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="turb" scale="40" />
+        </filter>
+      </defs>
+      <text
+        x="50%"
+        y="60%"
+        text-anchor="middle"
+        font-size="200"
+        fill="white"
+        filter="url(#smoke)"
+      >
+        SMOKE
+      </text>
+    </svg>
+
+    <!-- 2. Ice / Glass Effect -->
+    <h2>2. Ice / Glass Text</h2>
+    <svg viewBox="0 0 1200 300">
+      <defs>
+        <linearGradient id="ice" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#e0f7ff" />
+          <stop offset="50%" stop-color="#88d9ff" />
+          <stop offset="100%" stop-color="#004466" />
+        </linearGradient>
+        <filter id="frost">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur" />
+          <feSpecularLighting
+            in="blur"
+            surfaceScale="5"
+            specularConstant="1"
+            specularExponent="20"
+            lighting-color="white"
+            result="spec"
+          >
+            <fePointLight x="-5000" y="-10000" z="20000" />
+          </feSpecularLighting>
+          <feComposite in="spec" in2="SourceAlpha" operator="in" />
+        </filter>
+      </defs>
+      <text
+        x="50%"
+        y="60%"
+        text-anchor="middle"
+        font-size="200"
+        fill="url(#ice)"
+        filter="url(#frost)"
+      >
+        ICE
+      </text>
+    </svg>
+
+    <!-- 3. Hologram Flicker -->
+    <h2>3. Hologram Flicker</h2>
+    <svg viewBox="0 0 1200 300">
+      <defs>
+        <linearGradient id="holo" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#0ff" />
+          <stop offset="50%" stop-color="#fff" />
+          <stop offset="100%" stop-color="#0ff" />
+        </linearGradient>
+      </defs>
+      <text
+        x="50%"
+        y="60%"
+        text-anchor="middle"
+        font-size="200"
+        fill="url(#holo)"
+      >
+        HOLOGRAM
+        <animate
+          attributeName="opacity"
+          values="1;0.6;1;0.3;1"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+      </text>
+    </svg>
+
+    <!-- 4. Galaxy Inside Text -->
+    <h2>4. Galaxy Inside Text</h2>
+    <svg viewBox="0 0 1200 300">
+      <defs>
+        <mask id="galaxy-mask">
+          <text
+            x="50%"
+            y="70%"
+            text-anchor="middle"
+            font-size="220"
+            font-weight="bold"
+            fill="white"
+          >
+            GALAXY
+          </text>
+        </mask>
+      </defs>
+      <image
+        href="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&w=2000&q=80"
+        x="0"
+        y="0"
+        width="1200"
+        height="300"
+        mask="url(#galaxy-mask)"
+      >
+        <animate
+          attributeName="x"
+          from="0"
+          to="-300"
+          dur="20s"
+          repeatCount="indefinite"
+        />
+      </image>
+    </svg>
+
+    <!-- 5. Shattered Glass -->
+    <h2>5. Shattered Glass Effect</h2>
+    <svg viewBox="0 0 1200 300">
+      <text
+        id="shard-text"
+        x="50%"
+        y="60%"
+        text-anchor="middle"
+        font-size="200"
+        fill="white"
+      >
+        SHATTER
+      </text>
+      <g>
+        <use href="#shard-text" fill="red">
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 0"
+            to="-10 -5"
+            dur="2s"
+            repeatCount="indefinite"
+          />
+        </use>
+        <use href="#shard-text" fill="cyan">
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 0"
+            to="10 5"
+            dur="2s"
+            repeatCount="indefinite"
+          />
+        </use>
+      </g>
+    </svg>
+  </body>
+</html>

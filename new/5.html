@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Masked by Black & White GIF</title>
+    <style>
+      body {
+        margin: 0;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      svg {
+        width: 90%;
+        max-width: 1200px;
+      }
+    </style>
+  </head>
+  <body>
+    <svg viewBox="0 0 1200 400">
+      <defs>
+        <!-- Mask using a black/white animated gif -->
+        <mask id="bw-gif-mask">
+          <image
+            href="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"
+            x="0"
+            y="0"
+            width="1200"
+            height="400"
+            preserveAspectRatio="xMidYMid slice"
+          />
+        </mask>
+      </defs>
+
+      <!-- Background (anything you like: gradient, image, color) -->
+      <rect
+        width="1200"
+        height="400"
+        fill="url(#grad)"
+        mask="url(#bw-gif-mask)"
+      />
+
+      <!-- Gradient for background -->
+      <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ff0040" />
+          <stop offset="50%" stop-color="#00ffd5" />
+          <stop offset="100%" stop-color="#ffea00" />
+        </linearGradient>
+      </defs>
+
+      <!-- Text with GIF mask applied -->
+      <text
+        x="50%"
+        y="65%"
+        text-anchor="middle"
+        font-size="250"
+        font-weight="bold"
+        fill="white"
+        mask="url(#bw-gif-mask)"
+      >
+        MASKED
+      </text>
+    </svg>
+  </body>
+</html>
